@@ -1,0 +1,213 @@
+/*播放器整体属性*/
+#radioPlayer{
+	width: 510px;
+	height: 245px;
+	background: white;
+}
+#radioPlayer td{
+	padding: 0;
+	margin: 0;
+}
+#radioPlayer span{
+	font-size: 12px;
+	line-height: 1.6;
+	font-family: arial,helvetica,sans-serif;
+	/*控制超长后显示省略号，并不是没一个span都需要，在需要的span上补全另外两个属性。display: block; 和width */
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	/*font:12px/1.6 arial,helvetica,sans-serif;*/
+}
+
+
+
+
+/*左半部分*/
+#radioPlayer .radioLeftBlock{	
+	width: 245px;
+	height: 245px;
+}
+#radioPlayer div#albumInfoMask{
+	background-color: white; 
+	opacity: 0.0;
+	-moz-opacity: 0.0;
+	filter: alpha(opacity=00);
+	display: block;
+	position: absolute; 
+	z-index: 99; 
+	cursor: pointer;
+	text-align: center;
+	padding-top: expression(120);		/*只有ie能认识的表达式*/
+	/*配合伪类hover，mouseover的时候颜色逐渐变化*/
+	transition:background fast linear;
+	-webkit-transition:background fast linear;
+	-moz-transition:background fast linear;
+	-o-transition:background fast linear;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50c6d3cd,endColorstr=#50c6d3cd);
+}
+#radioPlayer div#albumInfoMask:hover{
+	background-color: black; 
+	opacity: 0.1;
+	-moz-opacity: 0.1;
+	filter: alpha(opacity=10);
+}
+#radioPlayer #albumMsg{
+	padding: 5px 20px;
+	margin-top:	110px;	/*拙劣的处理方式*/
+	margin-left: 70px;
+	position: absolute; 
+	z-index: 98; 
+	background-color: black; 
+	opacity: 0.0;
+	-moz-opacity: 0.0;
+	filter: alpha(opacity=00);
+	color: white;
+	cursor: pointer;
+}
+
+
+
+/*右半部分*/
+#radioPlayer .radioRightBlock{	
+	width: 265px;
+	height: 245px;
+}
+#radioPlayer div#songInfoMask{
+	background-color: white; 
+	opacity: 0.8;
+	-moz-opacity: 0.8;
+	filter: alpha(opacity=80);
+	display: none;
+	position: absolute; 
+	z-index: 99; 
+	cursor: pointer;
+	text-align: center;
+	padding-top: expression(120);		/*只有ie能认识的表达式*/
+}
+div#songInfoMask span{
+	display: table-cell; 
+	vertical-align: middle;
+}
+
+
+/*右侧文字内容调整样式*/
+#songInfo{
+	height: 100%;
+	width: 100%;
+}
+#songInfo #tr_parseBtn{
+	text-align: right; 
+	height: 26px;
+}
+#songInfo #tr_songInfo{
+	height: 55px;
+}
+#songInfo #tr_iconBar{
+	height: 100px;
+	text-align: right;
+}
+#songInfo td{
+	padding: 0px 20px;		/*左右产生间距*/
+}
+#songInfo #pauseBtn{
+	margin: 0;
+	padding: 0;
+	background-image: url('../img/radio/pause.png');
+	cursor: pointer;
+	margin-right: -10px;
+}
+#songInfo #artistName{
+	display: block;
+	width: 190px;
+	font-family: '微软雅黑', 'Microsoft YaHei', '黑体', 'Verdana', 'SimHei', 'arial';
+	font-size: 20px;
+}
+#songInfo #albumName{
+	padding: 0;
+	display: inline-block;
+	height: 15px;
+	max-width: 110px;
+	margin-bottom: expression(5);	/*控制只有ie识别属性*/
+	width: expression(80);
+}
+#songInfo #songName{
+	display: block;
+	width: 190px;
+	font-size: 13px;
+	color: #009966;
+	line-height: 23px;
+	height: 23px;
+}
+#songInfo span#progressBar{
+	background-image: url(../img/radio/progressBar.png);
+	font-size: 2px;		/*如果选择器不加span的话，单凭id选择器，本属性将不能覆盖原有值*/
+	width: 100%;
+	height: 2px; 
+	display: block;		/*ie中如果，inline的自动换行会产生一个不可控制的行间距。而display的强制换行将不会有*/
+	line-height: 2px; 
+	background-position: 100% 0%; 
+}
+#songInfo #restTime{
+	display: block; 
+	width: 100%;
+	text-align: right;
+	font-size: 11px;
+	line-height: 23px;
+	height: 23px;
+}
+#restTime #lastTime{
+	padding-right: 10px;
+}
+#restTime #volIcon{
+	position: relative;
+	cursor: pointer;
+	/*padding-left: 10px;*/
+}
+#restTime span#progressVol{
+	/*非常不可取的调整方式*/
+	position: absolute;
+	margin-top: 8px;
+	margin-left: -47px;
+	z-index:1;
+	display: none;	/*ie不支持，但是刚好ie不需要这个属性也能够显示*/
+	width: 45px;
+	height: 3px;
+	inline-height: 3px;
+	background-image: url('../img/radio/progressVol.png');
+	background-position: 0% 0%;
+	cursor: pointer;
+}
+
+
+
+
+
+
+/*“喜欢”，“不再播放”，“下一首” 按钮区域*/
+#radioIcons{
+	width: 100%;	/*必须使用，ie与safari排版丢失严重*/
+}
+#radioIcons #tr_parseBtn{
+	text-align: right; 
+	height: 26px;
+}
+#radioIcons td{
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+#radioIcons #justAPadding{
+	height: 5px;
+	line-height: 5px;
+}
+#radioIcons span{
+	font-family: '微软雅黑', 'Microsoft YaHei', '黑体', 'Verdana', 'SimHei', 'arial';
+	font-size: 12px; 
+	color: #A6A6A6;
+}
+#radioIcons .icon_pic{
+	cursor: pointer;
+}
+#radioIcons .icon_text{
+	visibility: hidden;
+}

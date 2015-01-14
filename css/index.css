@@ -1,0 +1,190 @@
+/*整体*/
+td{
+	text-align: right;
+}
+span.userInfo{
+	color: #999; 
+	line-height: 14px; 
+	font:12px/1.6 arial,helvetica,sans-serif;
+	cursor: pointer;
+}
+span.splitSign{
+	color: #999; 
+	line-height: 14px; 
+	font:12px/1.6 arial,helvetica,sans-serif;
+	cursor: default;
+}
+a.shareIcon{
+	margin: 0 5px; 
+	cursor: pointer; 
+	display: inline-table; 
+	width: 22px; 
+}
+
+
+
+/*背景灰条*/
+#bodyBgImg{
+	background-image: url('../img/backboard.png');
+	background-repeat: repeat-x;
+	height: 280px;
+	position: fixed;
+	z-index: -10;
+	width: 100%;
+	margin-top: 165px;
+}
+/*页面可滑动部分*/
+#slideBlock{
+	/*border: 1px solid red;*/
+	overflow: hidden;
+	width: 900px;
+	height: 1200px;
+	padding: 0;
+	margin: 0 auto;
+}
+/*页面固定部分*/
+#fixedBlock{
+	background-color: window;
+	/*border: 1px solid blue;*/
+	height: 148px;
+	padding: 0;
+	margin: 0 auto;
+	margin-top: -1px;
+	width: 900px;
+	position: fixed;
+	z-index: 1;
+}
+
+
+
+
+/*频道使用样式*/
+#channelList{
+	margin-top: 200px;
+	margin-left: 25px;
+	/*border: 1px solid green;*/
+	width: 300px;
+	height: 1200px;
+	position: absolute;
+}
+#channelList div{
+	width: 220px;
+	margin: 0 28px 0 28px;
+	/*border: 1px solid purple;*/
+}
+#channelList ul.channelBlock{
+	list-style: none; 
+	margin: 0; 
+	padding: 0;
+}
+#channelList li.mhz{
+	width: 220px; 
+	height: 38px;
+	line-height: 38px;
+	margin: 0; padding: 0;
+	margin-bottom: 18px;
+	background:rgba(198,211,205,0.5);
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	
+	/*配合伪类hover，mouseover的时候颜色逐渐变化*/
+	transition:background .2s linear;
+	-webkit-transition:background .2s linear;
+	-moz-transition:background .2s linear;
+	-o-transition:background .2s linear;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50c6d3cd,endColorstr=#50c6d3cd);
+}
+#channelList li.mhz:hover{
+	background-color: #CAD4D1;
+}
+#channelList li.mhz span.mhzName{
+	font: 13px/1.6 arial,helvetica,sans-serif; 
+	display: inline-block; 
+	width: 180px; 
+	text-indent: 24px; 
+	line-height:38px; 
+	height: 38px; 
+	position: absolute;
+}
+#channelList li.mhz span.jumpingGif{
+	display: inline-block; 
+	left: 180px; 
+	width: 19%; 
+	text-indent: 4px; 
+	line-height:38px; 
+	height: 38px; 
+	position: relative;
+	margin-top:10px; 
+	padding-left: 0px;
+}
+#channelList h3{
+	margin-bottom: 10px; margin-top: 25px;
+}
+
+
+
+
+
+
+
+/*弹出框使用样式*/
+.popBox{
+	list-style: none; 
+	display: none;
+	font: 12px/1.6 arial,helvetica,sans-serif; 
+	padding: 0;
+	width: 85px;
+	z-index: 2;
+	border: 1px solid #e1e8e6;
+	position: absolute;
+}
+.popBox li{
+	background-color: #fff;
+	padding: 4px 15px;
+	border: 0;
+	margin: 0;
+}
+.popBox li:hover{
+	cursor: pointer;
+	background-color: #E6E6E7;
+}
+
+/*频道弹出框使用样式*/
+#mhzPopBox{
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	width: 85px;
+}
+#mhzPopBox li{
+	border-right: 1px solid #e1e8e6;
+	border-left: 1px solid #e1e8e6;
+}
+.popBox #zw{
+	background-color: transparent;
+	border-left-style: none;
+	border-right-style: none;
+	border-bottom: 1px solid #e1e8e6;
+}
+.popBox #zw:hover{
+	cursor: default;
+}
+
+/*用户列表相关*/
+#userPopBox{
+	position: absolute;
+	z-index: 5;
+	width: 100px;
+	text-align: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 70px;
+	background-color: white;
+}
+
+/*分享图标*/
+.shareIcon{
+	background-image: url(../img/share_icons_1.png); 
+}
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Access-Control-Allow-Origin" content="*"><!-- 据说可以解决原型中ajax的跨域访问问题 -->
+<title>播放机</title>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="./css/radio.css">
+<script type="text/javascript" src="./js/jquery-1.7.1.min.js"></script>
+<!-- 
+<script type="text/javascript" src="./js/html5media.min.js"></script>
+<script type="text/javascript" src="./js/binaryajax.js"></script>
+<script type="text/javascript" src="./js/ID3.js"></script>
+-->
+<script type="text/javascript" src="./js/radio.js" charset="utf-8"></script>
+<!--[if IE]>
+<style>
+/*
+#songInfo span#albumName{
+	已在css中使用expression()代替之
+	margin-bottom: 5px;
+	width: 80px;
+	width:expression(this.width>110?"110":auto);
+}
+*/
+</style>
+<![endif]-->
+</head>
+<body style="margin: 0; padding: 0">
+
+
+
+
+<!-- controls是否显示控制条	autoplay是否自动播放	loop是否滚动播放	preload是否预加载 -->
+<audio id="media" autoplay oncanplay="audioLoadComplete(this);" ontimeupdate="audioRunning(this);" onended="randomMedia(this)">
+	<source src="" type="audio/mpeg" />
+	<source src="" type="audio/ogg" />
+	<bgsound src="./music/005.mp3" loop="1"><!--给ie一个背景乐标签 -->
+</audio>
+
+
+
+
+<table id="radioPlayer" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col class="radioLeftBlock">
+		<col class="radioRightBlock">
+	</colgroup>
+	<tr>
+		<td>
+			<div class="radioLeftBlock" id="albumInfoMask" ></div><div id="albumMsg"><span>查看专辑信息</span></div>
+			<img class="radioLeftBlock" src="./img/radio/songImg.jpg" >
+		</td>
+		<td class="radioRightBlock">
+			<!-- 遮罩 -->
+			<div class="radioRightBlock" id="songInfoMask"><span id="worningMsg">继续收听&gt;</span></div>
+			<table id="songInfo" cellpadding="0" cellspacing="0">
+				<tr id="tr_parseBtn"><td>
+					<img id="pauseBtn" src="./img/radio/pause.png" src2="./img/radio/pause_mouseover.png" />
+				</td></tr>
+				
+				<tr id="tr_songInfo"><td>
+					<span id="artistName">艺术家名</span>
+					<span>&lt;<span id="albumName">专辑名称</span>&gt;&nbsp;&nbsp;<span id="albumYear">专辑年份</span></span>
+				</td></tr>
+				
+				
+				<tr><td>
+					<span id="songName">歌曲名称</span>
+					<span id="progressBar">&nbsp;</span>
+					<span id="restTime">
+						<span id="lastTime">0:0</span>
+						<span id="volIcon"><img src="./img/radio/volIcon.png"/></span>
+						<span id="progressVol"></span>
+					</span>
+				</td></tr>
+				
+				
+				<tr id="tr_iconBar"><td>
+					<table cellpadding="0" cellspacing="0" id="radioIcons">
+						<colgroup>
+							<col width="22%">
+							<col width="28%">
+							<col width="25%">
+							<col width="25%">
+						</colgroup>
+						<tr>
+							<td></td>
+							<td><span class="icon_text">喜欢这首歌</span></td>
+							<td><span class="icon_text">不再播放</span></td>
+							<td><span class="icon_text">下一首</span></td>
+						</tr>
+						<tr id="justAPadding"><td colspan="4">&nbsp;</td></tr>
+						<tr>
+							<td></td>
+							<td><img class="icon_pic" src="./img/radio/icon_10.png" src2="./img/radio/icon_11.png" src3="./img/radio/icon_12.png"/></td>
+							<td><img class="icon_pic" src="./img/radio/icon_20.png" src2="./img/radio/icon_21.png" /></td>
+							<td><img class="icon_pic" src="./img/radio/icon_30.png" src2="./img/radio/icon_31.png" /></td>
+						</tr>
+					</table>
+				</td></tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

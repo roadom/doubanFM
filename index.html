@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>豆瓣FM</title>
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="./css/index.css">
+<script type="text/javascript" src="./js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="./js/index.js" charset="utf-8"></script>
+<style>
+
+
+</style>
+<script>
+
+</script>
+</head>
+<body style="margin: 0; padding:0;">
+	<!-- 这是背景灰条 -->
+	<div id="bodyBgImg"></div>
+	<!-- 页面滑动部分 -->
+	<div id="slideBlock">
+		<!-- 页面固定部分 -->
+		<table cellpadding="0" cellspacing="0" id="fixedBlock">
+			<colgroup>
+				<col width="240px" />
+				<col width="143px" />
+				<col width="517px" />		
+			</colgroup>
+			
+			<!-- 固定	头标题，显示用户信息 -->
+			<tr><td colspan="3" style="height: 4px;"></td></tr>
+			<tr>
+				<td rowspan="2" style="text-align: center; ">
+					<img src="./img/logo_doubanFM.png" />
+				</td>
+				<td></td>
+				<td style="height:10px;">
+					<ul id="userPopBox" class="popBox"><li>设置</li><li>付费服务</li><li>退出</li></ul>
+					<span class="userInfo">
+						colorful_white&nbsp;&nbsp;
+						<img src="./img/icon_arrowDown.png" />
+					</span>
+					<span class="splitSign">
+						&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+					</span>
+					<span class="userInfo">
+						累计收听xxx首
+					</span>
+					<span class="splitSign">
+						&nbsp;&nbsp;&nbsp;
+					</span>
+					<span class="userInfo">
+						加红心xx首
+					</span>
+					<span class="splitSign">
+						&nbsp;&nbsp;&nbsp;
+					</span>
+					<span class="userInfo">
+						x首不在播放
+					</span>
+					<span class="splitSign">
+						&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+					</span>
+					<span class="userInfo">
+						升级到 <img src="./img/icon_pro.png" />
+					</span>
+				</td>
+			</tr>
+			
+			
+			
+			
+			<!-- 固定	播放器，以及分享链接 -->
+			<tr>
+				<td></td>
+				<td style="text-align: right; height: 138px; text-align: right;">
+					<div style="
+						position: fixed;
+						text-align: right;
+						">
+						<div style="box-shadow: 0 0 20px rgba(0,0,0,0.2); position: absolute; z-index: 2;">
+							<iframe id="radioFrame" name="radioFrame" width="510px;" height="245px" src="./radio.html" align="top" scrolling="no" frameborder="0"></iframe>
+							<!-- 
+							<object type="application/x-shockwave-flash" id="radioplayer" name="radioplayer" 
+								data="swf/fmplayer.swf" width="510" height="245" style="visibility: visible;">
+							</object>
+							 -->
+							 <!-- 
+							<object type="application/x-shockwave-flash" id="radioplayer" name="radioplayer" width="510" height="245" style="visibility: visible;">
+							    <param value="swf/fmplayer.swf" name="radioplayer">
+							    <param value="High" name="quality">
+							    <param value="opaque" name="wmode">
+							    <param value="always" name="allowscriptaccess">
+							    <embed wmode="transparent">
+							</object>
+							 -->
+						</div>
+						
+						
+						<table id="shareTab" cellpadding="0" cellspacing="0" style="text-align: right; margin-top: 280px; padding: 10px 0px 30px 30px; line-height: 19px; position: relative; left: 400px;"><tr>
+							<td><table cellpadding="0" cellspacing="0" ><tr>						
+								<td><span class="userInfo" style="margin: 0 5px; display: inline-table; ">分享这首歌</span></td>
+							</tr></table></td>					
+							<td><table cellpadding="0" cellspacing="0" style="display: none;" id="shareIcons"><tr>
+								<td><a class="shareIcon" title="分享到豆瓣" style="background-position: 60% 0%; ">&nbsp;</a></td>
+								<td><a class="shareIcon" title="分享到新浪微博" style="background-position: 43% 0%;">&nbsp;</a></td>
+								<td><a class="shareIcon" title="分享到腾讯微博" style="background-position: 100% 0%;">&nbsp;</a></td>
+								<td><a class="shareIcon" title="分享到MSN" style="background-position: 80% 0%;">&nbsp;</a></td>
+								<td><a class="shareIcon" title="分享到开心" style="background-position: 0% 0%;">&nbsp;</a></td>
+								<td><a class="shareIcon" title="分享到人人" style="background-position: 20% 0%;">&nbsp;</a></td>
+							</tr></table></td>
+						</tr></table>
+					</div>
+				</td>
+			</tr>
+		</table>
+		
+		
+		
+		<!-- 电台列表开始 -->
+		<div id="channelList">
+			<div>
+				<ul class="popBox" id="mhzPopBox"><li id="zw">&nbsp;</li><li>兆赫详情</li><li>分享</li><li>删除</li></ul><!-- 电台弹出窗 -->
+				<ul class="channelBlock">
+					<li class="mhz" style="background: #9dd6c5; display: none;"><!-- 用以提供被选中电台列表的颜色。为了不再js中写详细的参数而有css统一控制 -->
+					<li class="mhz" style="display: none;">						<!-- 用以提供未被选中的电台列表默认颜色 -->
+					<li class="mhz" style="background-color: #9dd6c5;"><span class="mhzName">我的私人兆赫</span><span class="jumpingGif"><img id="jumpingGif" src="./img/jumping.gif"/></span></li>
+					<li class="mhz"><span class="mhzName">我的红心兆赫</span><span class="jumpingGif"></span></li>
+				</ul>
+				
+				<h3><span class="userInfo" >试试这些——————————————</span></h3>
+				<ul class="channelBlock">
+					<li class="mhz"><span class="mhzName">让我们恋爱吧 MHz</span><span class="jumpingGif"></span></li>
+					<li class="mhz"><span class="mhzName">啦啦啦啦好多啦 MHz</span><span class="jumpingGif"></span></li>
+				</ul>
+				
+				<h3><span class="userInfo" >最近收听——————————————</span></h3>
+				<ul class="channelBlock">
+					<li class="mhz"><span class="mhzName">奔跑中的猫须 MHz</span><span class="jumpingGif"></span></li>
+					<li class="mhz"><span class="mhzName">耳朵的盛宴 MHz</span><span class="jumpingGif"></span></li>
+					<li class="mhz"><span class="mhzName">古典 MHz</span><span class="jumpingGif"></span></li>
+					<li class="mhz"><span class="mhzName">一朵阳光。 MHz</span><span class="jumpingGif"></span></li>
+					<li class="mhz"><span class="mhzName">摇滚电台 MHz</span><span class="jumpingGif"></span></li>
+					<li class="mhz"><span class="mhzName">中国好声音 MHz</span><span class="jumpingGif"></span></li>
+					<li class="mhz"><span class="mhzName">中国好声音 MHz</span><span class="jumpingGif"></span></li>
+					<li class="mhz"><span class="mhzName">中国好声音 MHz</span><span class="jumpingGif"></span></li>
+					<li class="mhz"><span class="mhzName">中国好声音 MHz</span><span class="jumpingGif"></span></li>
+					<li class="mhz"><span class="mhzName">中国好声音 MHz</span><span class="jumpingGif"></span></li>
+					<li class="mhz"><span class="mhzName">中国好声音 MHz</span><span class="jumpingGif"></span></li>
+					<li class="mhz"><span class="mhzName">中国好声音 MHz</span><span class="jumpingGif"></span></li>
+					<li class="mhz"><span class="mhzName">中国好声音 MHz</span><span class="jumpingGif"></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
